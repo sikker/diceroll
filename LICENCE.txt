@@ -1,0 +1,6 @@
+CROWLEY LICENCE version 1.0
+   (C) 2014 Per Sikker Hansen <persikkerhansen@gmail.com>
+   This licence text is itself subject to the terms and conditions found within it.
+
+Terms and Conditions:
+  - Do what thou wilt shall be the whole of the licence
