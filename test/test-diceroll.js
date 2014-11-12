@@ -36,4 +36,9 @@ batchTest = new DiceRoll({dice:6,sides:10,sum:false,target:8});
 result = batchTest.result();
 assert.ok(result.rolls.length === 6);
 
+onesSubtractTest = new DiceRoll({dice:1,sides:1,sum:false,target:2,onesSubtract:true});
+result = onesSubtractTest.result();
+assert.ok(result.rolls[0] === 1);
+assert.ok(result.conclusion === -1);
+
 console.log("All tests clear");

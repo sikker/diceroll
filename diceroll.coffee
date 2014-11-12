@@ -24,10 +24,12 @@ class DiceRoll
 		for i in [1..@opts.dice] by 1
 			result = Math.ceil Math.random() * @opts.sides
 			@rolls.push result
-			if not @opts.sum and result >= @opts.target
-				@conclusion++
-			else if @opts.sum
+			if @opts.sum
 				@conclusion += result
+			else if not @opts.sum and result >= @opts.target
+				@conclusion++
+			else if not @opts.sum and @opts.onesSubtract and result is 1
+				@conclusion--
 
 	result: ->
 		{ 'rolls': @rolls, 'conclusion': @conclusion }

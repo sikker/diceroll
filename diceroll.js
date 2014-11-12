@@ -33,10 +33,12 @@
       for (i = _i = 1, _ref = this.opts.dice; _i <= _ref; i = _i += 1) {
         result = Math.ceil(Math.random() * this.opts.sides);
         this.rolls.push(result);
-        if (!this.opts.sum && result >= this.opts.target) {
-          this.conclusion++;
-        } else if (this.opts.sum) {
+        if (this.opts.sum) {
           this.conclusion += result;
+        } else if (!this.opts.sum && result >= this.opts.target) {
+          this.conclusion++;
+        } else if (!this.opts.sum && this.opts.onesSubtract && result === 1) {
+          this.conclusion--;
         }
       }
     }
