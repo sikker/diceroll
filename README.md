@@ -26,7 +26,7 @@ The following parameters are currently supported:
  - dice [number] (mandatory): the amount of dice to roll
  - sides [number] (mandatory): how many sides the dice should have
  - sum [bool]: Whether the conclusion should summarize the roll results or not
- - target [number]: If sum is false, the conclusion will instead contain the amount of rolls that reach or exceed this target number.
+ - target [number]: If sum is false, the conclusion will instead contain the amount of rolls that reach or exceed this target number. If, however, sum is true *and* target number is set, the conclusion will contain a boolean true or false depending on whether or not the target number was met.
  - onesSubtract [bool]: If sum is false, any 1s rolled will subtract from the conclusion, possibly making it negative.
  - explodeOn [number]: If sum is false, an extra die will be rolled anytime a die hits or exceeds this number.
 
@@ -37,6 +37,15 @@ The result yielded could look like this:
   {
     rolls: [3, 10, 4, 2, 8],
     conclusion: 2
+  }
+
+Example using a target number on a summarized roll (such as a D&D d20 roll):
+  var roll = new DiceRoll({ dice: 1, sides: 20, target: 12 });
+  console.log(roll.result());
+The result yielded could look like this:
+  {
+    rolls: [ 9 ],
+    conclusion: false
   }
 
 If you wish to run the unit tests for DiceRoll, do so with

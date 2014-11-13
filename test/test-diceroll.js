@@ -1,4 +1,4 @@
-var assert, DiceRoll, result, noDiceTest, defaultsTest, noTargetTest, batchTest, onesSubtractTest, explodingDiceTest, everExplodingDiceTest;
+var assert, DiceRoll, result, noDiceTest, defaultsTest, noTargetTest, batchTest, onesSubtractTest, explodingDiceTest, everExplodingDiceTest, targetSumTest;
 
 assert = require("assert");
 require("coffee-script/register");
@@ -57,5 +57,9 @@ try {
 	result = true;
 }
 assert.ok(result);
+
+targetSumTest = new DiceRoll({dice:2,sides:20,target:2});
+result = targetSumTest.result();
+assert.ok(result.conclusion === true);
 
 console.log("All tests clear");

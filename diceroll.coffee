@@ -31,12 +31,16 @@ class DiceRoll
 			@rolls.push result
 			if not @opts.sum and @opts.explodeOn isnt null and result >= @opts.explodeOn
 				diceLeft++
+
 			if @opts.sum
 				@conclusion += result
 			else if not @opts.sum and result >= @opts.target
 				@conclusion++
 			else if not @opts.sum and @opts.onesSubtract and result is 1
 				@conclusion--
+
+		if @opts.sum and @opts.target isnt null
+			@conclusion = (@conclusion >= @opts.target)
 
 	result: ->
 		{ 'rolls': @rolls, 'conclusion': @conclusion }

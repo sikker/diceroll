@@ -50,6 +50,9 @@
           this.conclusion--;
         }
       }
+      if (this.opts.sum && this.opts.target !== null) {
+        this.conclusion = this.conclusion >= this.opts.target;
+      }
     }
 
     DiceRoll.prototype.result = function() {
