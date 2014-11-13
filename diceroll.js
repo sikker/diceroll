@@ -8,7 +8,8 @@
       sides: null,
       sum: true,
       onesSubtract: false,
-      target: null
+      target: null,
+      explodeOn: null
     };
 
     DiceRoll.prototype.opts = {};
@@ -18,21 +19,29 @@
     DiceRoll.prototype.conclusion = 0;
 
     function DiceRoll(opts) {
-      var i, result, _i, _ref;
+      var diceLeft, result;
       this.rolls = [];
       ({
         conclusion: 0
       });
       this.opts = extend(extend({}, this.defaults), opts);
+      if (this.opts.explodeOn !== null && this.opts.explodeOn <= 1) {
+        throw new Error("If you set explodeOn to that number, the roll will keep exploding forever.");
+      }
       if (this.opts.dice === null || this.opts.sides === null) {
         throw new Error("You have to provide dice and sides parameters");
       }
       if (!this.opts.sum && this.opts.target === null) {
         throw new Error("If you set sum: false you must set target: <number> as well.");
       }
-      for (i = _i = 1, _ref = this.opts.dice; _i <= _ref; i = _i += 1) {
+      diceLeft = this.opts.dice;
+      while (diceLeft) {
+        diceLeft--;
         result = Math.ceil(Math.random() * this.opts.sides);
         this.rolls.push(result);
+        if (!this.opts.sum && this.opts.explodeOn !== null && result >= this.opts.explodeOn) {
+          diceLeft++;
+        }
         if (this.opts.sum) {
           this.conclusion += result;
         } else if (!this.opts.sum && result >= this.opts.target) {

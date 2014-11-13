@@ -44,7 +44,6 @@ If you wish to run the unit tests for DiceRoll, do so with
 Future plans
 ----------------------
 These are features that may or may not make it into the code in the foreseeable future:
- - Exploding dice (dice that reach a certain threshold are re-rolled for additional value)
  - Multiple types of dice in the same roll (support for rolling "1d10 + 1d8")
  - Static modifiers (support for rolling "1d6 +2")
 
