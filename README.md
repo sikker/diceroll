@@ -28,6 +28,7 @@ The following parameters are currently supported:
  - sum [bool]: Whether the conclusion should summarize the roll results or not
  - target [number]: If sum is false, the conclusion will instead contain the amount of rolls that reach or exceed this target number.
  - onesSubtract [bool]: If sum is false, any 1s rolled will subtract from the conclusion, possibly making it negative.
+ - explodeOn [number]: If sum is false, an extra die will be rolled anytime a die hits or exceeds this number.
 
 Example using a target number (6, as is the case in the Vampire: the Masquerade RPG for instance):
   var roll = new DiceRoll({ dice: 5, sides: 10, sum: false, target: 6, onesSubtract: true });
