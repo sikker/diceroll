@@ -49,13 +49,19 @@ The result yielded could look like this:
     conclusion: false
   }
 
+You can roll multiple dice types in the same DiceRoll. This creates nested DiceRoll instances that sum their conclusions together and returns their roll results in an array of arrays. Note that if you use a target number with sum:true, the boolean conclusion will be skipped. With sum:false the number of successful target hits gets added to the conclusion (rather than the sum of the rolls). 
+
+Example using multiple dice in the same roll:
+  var roll = new DiceRoll([ { dice: 1, sides: 6 }, { dice: 2, sides: 4, modifier: 1 } ]);
+  console.log(roll.result());
+The result yielded could look like this:
+  {
+    rolls: [ [ 3 ], [ 1, 4 ] ],
+    conclusion: 9 // sum of the rolls is 8, modifier to the last roll is 1, for a total of 9
+  }
+
 If you wish to run the unit tests for DiceRoll, do so with
   npm test
-
-Future plans
-----------------------
-These are features that may or may not make it into the code in the foreseeable future:
- - Multiple types of dice in the same roll (support for rolling "1d10 + 1d8")
 
 Contribution
 -----------------------

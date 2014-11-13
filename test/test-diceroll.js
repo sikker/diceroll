@@ -1,4 +1,4 @@
-var assert, DiceRoll, result, noDiceTest, defaultsTest, noTargetTest, batchTest, onesSubtractTest, explodingDiceTest, everExplodingDiceTest, targetSumTest;
+var assert, DiceRoll, result, noDiceTest, defaultsTest, noTargetTest, batchTest, onesSubtractTest, explodingDiceTest, everExplodingDiceTest, targetSumTest, modifierSumTest, multipleDiceTypesTest;
 
 assert = require("assert");
 require("coffee-script/register");
@@ -65,5 +65,25 @@ assert.ok(result.conclusion === true);
 modifierSumTest = new DiceRoll({dice: 1, sides: 1, modifier: 3});
 result = modifierSumTest.result();
 assert.ok(result.conclusion === 4);
+
+
+multipleDiceTypesTest = new DiceRoll([{
+	dice: 1,
+	target: 1,
+	sum: false,
+	sides: 8,
+},{
+	dice: 2,
+	sides: 4
+},{
+	dice: 3,
+	sides: 6,
+	modifier: 1
+}]);
+result = multipleDiceTypesTest.result();
+assert.ok(result.rolls.length === 3);
+assert.ok(result.rolls[0].length === 1);
+assert.ok(result.rolls[1].length === 2);
+assert.ok(result.rolls[2].length === 3);
 
 console.log("All tests clear");
