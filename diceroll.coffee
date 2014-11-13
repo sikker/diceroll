@@ -7,7 +7,8 @@ class DiceRoll
 		sum: true,
 		onesSubtract: false,
 		target: null,
-		explodeOn: null
+		explodeOn: null,
+		modifier: null
 	}
 	opts: {}
 	rolls: []
@@ -34,6 +35,8 @@ class DiceRoll
 
 			if @opts.sum
 				@conclusion += result
+				if @opts.modifier isnt null
+					@conclusion += @opts.modifier
 			else if not @opts.sum and result >= @opts.target
 				@conclusion++
 			else if not @opts.sum and @opts.onesSubtract and result is 1

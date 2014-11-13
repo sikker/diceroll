@@ -9,7 +9,8 @@
       sum: true,
       onesSubtract: false,
       target: null,
-      explodeOn: null
+      explodeOn: null,
+      modifier: null
     };
 
     DiceRoll.prototype.opts = {};
@@ -44,6 +45,9 @@
         }
         if (this.opts.sum) {
           this.conclusion += result;
+          if (this.opts.modifier !== null) {
+            this.conclusion += this.opts.modifier;
+          }
         } else if (!this.opts.sum && result >= this.opts.target) {
           this.conclusion++;
         } else if (!this.opts.sum && this.opts.onesSubtract && result === 1) {

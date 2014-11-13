@@ -62,4 +62,8 @@ targetSumTest = new DiceRoll({dice:2,sides:20,target:2});
 result = targetSumTest.result();
 assert.ok(result.conclusion === true);
 
+modifierSumTest = new DiceRoll({dice: 1, sides: 1, modifier: 3});
+result = modifierSumTest.result();
+assert.ok(result.conclusion === 4);
+
 console.log("All tests clear");
