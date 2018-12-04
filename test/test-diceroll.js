@@ -1,7 +1,7 @@
 var assert, DiceRoll, result, noDiceTest, defaultsTest, noTargetTest, batchTest, onesSubtractTest, explodingDiceTest, everExplodingDiceTest, targetSumTest, modifierSumTest, multipleDiceTypesTest;
 
 assert = require("assert");
-require("coffee-script/register");
+require("coffeescript/register");
 diceroll = require('../diceroll.coffee');
 
 result = false;

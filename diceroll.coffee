@@ -67,4 +67,6 @@ extend = (object, properties) ->
 typeIsArray = Array.isArray || ( value ) -> return {}.toString.call( value ) is '[object Array]'
 
 # Export the module
-exports = module.exports = diceroll
+exports = module.exports = diceroll unless typeof module is "undefined"
+window.diceroll = diceroll unless typeof window is "undefined"
+return diceroll

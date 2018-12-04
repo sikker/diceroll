@@ -1,6 +1,6 @@
 {
   "name": "diceroll",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A dice roller for gaming",
   "main": "diceroll.js",
   "scripts": {
@@ -14,9 +14,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sikker/diceroller"
+    "url": "https://github.com/sikker/diceroll"
   },
-  "devDependencies": ["coffee-script"],
+  "dependencies": [
+    "coffeescript"
+  ],
   "author": "Per Sikker Hansen",
-  "license": "Crowley Licence 1.0, see included LICENCE.txt"
+  "license": "SEE LICENSE IN LICENCE.txt"
 }

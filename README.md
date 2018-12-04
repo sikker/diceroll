@@ -1,6 +1,6 @@
 DiceRoll
 ====================================
-A simple dice rolling lib for Node, written in Coffee.
+A simple dice rolling lib for Node or the browser, written in Coffee, distributed as compiled JS.
 
 Usage
 -----------------
@@ -8,10 +8,17 @@ Clone this repo or install hrough npm:
 ```
 npm install diceroll
 ```
+Include the library client side:
+```html
+<script src="node_modules/diceroll/diceroll.min.js"></script>
+```
+Or server side in Node:
+```javascript
+var diceroll = require("diceroll");
+```
 
 Require the function and do a roll:
 ```javascript
-var diceroll = require("diceroll");
 var roll = diceroll({ dice: 2, sides: 20 });
 console.log(roll);
 ```
@@ -28,7 +35,7 @@ The roll results in a json object with the following:
 
 The following parameters are currently supported:
  - dice [number] (mandatory): the amount of dice to roll
- - sides [number] (mandatory): how many sides the dice should have
+ - sides [number] (mandatory): how many sides each die should have
  - sum [bool]: Whether the conclusion should summarize the rolls or not
  - target [number]: If sum is false, the conclusion will instead contain the amount of rolls that reach or exceed this target number. If, however, sum is true *and* target number is set, the conclusion will contain a boolean true or false depending on whether or not the target number was met.
  - onesSubtract [bool]: If sum is false, any 1s rolled will subtract from the conclusion, possibly making it negative.
@@ -74,7 +81,7 @@ The result yielded could look like this:
 }
 ```
 
-If you wish to run the unit tests for diceroll, do so with
+If you wish to run the unit tests for diceroll, enter the module directory and run:
 ```
 npm test
 ```
